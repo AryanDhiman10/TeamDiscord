@@ -1,8 +1,8 @@
-// pages.tsx
 import { redirect } from "next/navigation";
 
 import { db } from "@/lib/db";
 import { initialProfile } from "@/lib/initial-profile";
+import { InitialModel } from "@/components/modals/initial-modal";
 
 const SetupPage = async () => {
 
@@ -22,11 +22,7 @@ const SetupPage = async () => {
     return redirect(`/servers/${server.id}`);
   }
 
-  return (
-    <div>
-      Discord Server
-    </div>
-  );
+  return <InitialModel />;
 };
 
 export default SetupPage;

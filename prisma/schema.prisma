@@ -14,8 +14,8 @@ model Profile {
   id String @id @default(uuid()) @map("_id")
   userId String @unique
   name String
-  imageUrl String
-  email String
+  imageUrl String @default("/default.jpeg")
+  email String @default("not_provided")
 
   servers Server[]
   members Member[]
