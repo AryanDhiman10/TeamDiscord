@@ -27,6 +27,7 @@ export const InviteModal = () => {
   const [isLoading, setIsLoading] = useState(false);
 
   const inviteUrl = `${origin}/invite/${server?.inviteCode}`;
+  // const [inviteUrl, changeInviteUrl] = /
 
   const onCopy = () => {
     navigator.clipboard.writeText(inviteUrl);
@@ -43,6 +44,13 @@ export const InviteModal = () => {
       const response = await axios.patch(`/api/servers/${server?.id}/invite-code`);
 
       onOpen("invite", { server: response.data });
+
+      var inputElement = document.querySelector("input");
+      if(!inputElement){
+        throw("Unsuccessful Update");
+      }
+      inputElement.value = inviteUrl;
+      inputElement.dispatchEvent(new Event('input', { 'bubbles': true }));
     } catch (error) {
       console.log(error);
     } finally {
@@ -65,10 +73,12 @@ export const InviteModal = () => {
             Server invite link
           </Label>
           <div className="flex items-center mt-2 gap-x-2">
-            <Input
+            <input
               disabled={isLoading}
-              className="bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
-              value={inviteUrl}
+              className={
+                "flex h-10 w-full rounded-md border border-input bg-background px-3 py-2 text-sm ring-offset-background file:border-0 file:bg-transparent file:text-sm file:font-medium placeholder:text-muted-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:cursor-not-allowed disabled:opacity-50 bg-zinc-300/50 border-0 focus-visible:ring-0 text-black focus-visible:ring-offset-0"
+              }
+              defaultValue={inviteUrl}
             />
             <Button disabled={isLoading} onClick={onCopy} size="icon">
               {copied 
