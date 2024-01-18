@@ -12,7 +12,7 @@ export function NavigationLogout() {
       label="Logout"
     >
       <Link href='/api/auth/signout'>
-        <Button variant="outline" size="icon" name="Logout">
+        <Button variant="outline" size="icon" name="Logout" className="bg-transparent border-0">
             <ExitIcon className="h-4 w-4"/>
         </Button>
       </Link>
