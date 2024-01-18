@@ -1,4 +1,4 @@
-import { ChevronRightIcon } from "@radix-ui/react-icons"
+import { ExitIcon } from "@radix-ui/react-icons"
 
 import { Button } from "@/components/ui/button"
 import { ActionTooltip } from "../action-tooltip"
@@ -13,7 +13,7 @@ export function NavigationLogout() {
     >
       <Link href='/api/auth/signout'>
         <Button variant="outline" size="icon" name="Logout">
-            <ChevronRightIcon className="h-4 w-4"/>
+            <ExitIcon className="h-4 w-4"/>
         </Button>
       </Link>
     </ActionTooltip>
