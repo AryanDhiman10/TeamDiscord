@@ -3,8 +3,15 @@ import { ExitIcon } from "@radix-ui/react-icons"
 import { Button } from "@/components/ui/button"
 import { ActionTooltip } from "../action-tooltip"
 import Link from "next/link"
+import { UserAvatar } from "../user-avatar"
 
-export function NavigationLogout() {
+interface profileProps {
+  imageUrl?: string
+}
+
+export function NavigationLogout(
+  { imageUrl }: profileProps
+) {
   return (
     <ActionTooltip
       side="right"
@@ -13,7 +20,7 @@ export function NavigationLogout() {
     >
       <Link href='/api/auth/signout'>
         <Button variant="outline" size="icon" name="Logout" className="bg-transparent border-0">
-            <ExitIcon className="h-4 w-4"/>
+            <UserAvatar src={imageUrl} />
         </Button>
       </Link>
     </ActionTooltip>

@@ -49,7 +49,7 @@ export const NavigationSidebar = async () => {
       </ScrollArea>
       <div className="pb-3 mt-auto flex items-center flex-col gap-y-4">
         <ModeToggle />
-        <NavigationLogout />
+        <NavigationLogout imageUrl={profile.imageUrl}/>
       </div>
     </div>
   )
