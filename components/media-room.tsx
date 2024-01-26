@@ -5,7 +5,6 @@ import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles";
 import { Channel } from "@prisma/client";
 import { Loader2 } from "lucide-react";
-import { currentProfile } from "@/lib/current-profile";
 import { useSession } from "next-auth/react";
 
 interface MediaRoomProps {
