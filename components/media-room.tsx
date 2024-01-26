@@ -1,11 +1,12 @@
-"use client";
+"use client"
 
 import { useEffect, useState } from "react";
 import { LiveKitRoom, VideoConference } from "@livekit/components-react";
 import "@livekit/components-styles";
 import { Channel } from "@prisma/client";
 import { Loader2 } from "lucide-react";
-import { currentUser } from "@/lib/current-user";
+import { currentProfile } from "@/lib/current-profile";
+import { useSession } from "next-auth/react";
 
 interface MediaRoomProps {
   chatId: string;
@@ -19,11 +20,14 @@ export const MediaRoom = ({
   audio
 }: MediaRoomProps) => {
 
-  const user = currentUser();
-
+  const { data: session } = useSession();
   const [token, setToken] = useState("");
 
   useEffect(() => {
+    if(!session) return;
+
+    const { user } = session;
+    
     if (!user?.name) return;
 
     const name = `${user.name}`;
@@ -37,7 +41,7 @@ export const MediaRoom = ({
         console.log(e);
       }
     })()
-  }, [user?.name, chatId]);
+  }, [session, chatId]);
 
   if (token === "") {
     return (
