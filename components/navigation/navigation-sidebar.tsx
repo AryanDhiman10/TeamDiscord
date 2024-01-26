@@ -1,5 +1,4 @@
 import { redirect } from "next/navigation";
-// import { UserButton } from "@clerk/nextjs";
 
 import { ScrollArea } from "@/components/ui/scroll-area";
 import { ModeToggle } from "@/components/mode-toggle";
