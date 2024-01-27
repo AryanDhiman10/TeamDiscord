@@ -1,7 +1,9 @@
 ## Team Discord App
 
 This is a repository of a community server app having functionality similar to discord.
+
 Tech stack used is: NextJS, Typescript, NextAuth, Socket.io, Prisma (MongoDB), ShadcnUI.
+
 Live: https://teamdiscord.up.railway.app/
 
 ### Prerequisites
@@ -44,7 +46,7 @@ NEXT_PUBLIC_LIVEKIT_URL=
 
 ### Setup Prisma
 
-Add MySQL Database (I used MongoDBn Atlas)
+Add MongoDB Atlas Database
 
 ```shell
 npx prisma generate
